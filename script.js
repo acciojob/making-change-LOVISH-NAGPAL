@@ -1,32 +1,20 @@
-const makeChange = (c) => {
-  const obj={
-	  q:0.25,
-	  d:0.10,
-	  n:0.05,
-	  p:0.01
-  }
-let obj2={
-	q:0,
-	d:0,
-	n:0,
-	p:0
-}
+const makeChange = (cents) => {
+    let obj = { q: 0, d: 0, n: 0, p: 0 };
 
-while(c>=0 ){
-	// console.log("new while")
-for(let ch in obj){
-	// console.log(c,ch)
-	
-	if(c>=obj[ch]){
-c=(c-obj[ch])
-		obj2[ch]+=1
-		break;
-	}
-	
-}
-}
-return obj2
+    obj.q = Math.floor(cents / 25);
+    cents %= 25;
+
+    obj.d = Math.floor(cents / 10);
+    cents %= 10;
+
+    obj.n = Math.floor(cents / 5);
+    cents %= 5;
+
+    obj.p = cents;
+
+    return obj;
 };
+
 
 Do not the change the code below
 const c = prompt("Enter c: ");
